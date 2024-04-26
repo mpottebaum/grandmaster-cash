@@ -2,7 +2,7 @@
 
 tha main cat man is back in town + the main cat town is overriden by wolves man
 
-![gradmaster flash](/assets/grandmaster-flash-1997-billboard.jpg)
+![grandmaster flash](/assets/grandmaster-F.jpg)
 
 ## THA ART YO
 
