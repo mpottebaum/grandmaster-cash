@@ -1,0 +1,7 @@
+# dependos
+node_modules
+package-lock.json
+
+# builders
+assets/gaymer.js
+
