@@ -11,7 +11,7 @@ var tmp *template.Template
 var PORT_STR = ":3000"
 
 func loadTemplate() {
-	t, err := template.ParseFiles("index.html")
+	t, err := template.ParseFiles("dist/index.html")
 	if err != nil {
 		panic(err)
 	}
@@ -29,6 +29,13 @@ func main() {
 		http.StripPrefix(
 			"/assets/",
 			http.FileServer(http.Dir("./assets/")),
+		),
+	)
+	http.Handle(
+		"/juicy/",
+		http.StripPrefix(
+			"/juicy/",
+			http.FileServer(http.Dir("./dist/juicy/")),
 		),
 	)
 	http.HandleFunc("/", rootHandler)

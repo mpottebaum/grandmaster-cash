@@ -9,6 +9,10 @@
   "author": "potty bomber",
   "license": "MIT",
   "devDependencies": {
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vite": "^5.2.13"
+  },
+  "dependencies": {
+    "phaser": "^3.80.1"
   }
 }
