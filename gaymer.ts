@@ -18,7 +18,7 @@ var config = {
 	}
 };
 
-var player;
+let player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
 var stars;
 var bombs;
 var platforms;
@@ -34,7 +34,7 @@ function preload() {
 	this.load.image('ground', 'assets/platform.png');
 	this.load.image('star', 'assets/star.png');
 	this.load.image('bomb', 'assets/bomb.png');
-	this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
+	this.load.spritesheet('gmc', 'assets/gmc-cat.png', { frameWidth: 30, frameHeight: 30, });
 }
 
 function create() {
@@ -54,7 +54,7 @@ function create() {
 	platforms.create(750, 220, 'ground');
 
 	// The player and its settings
-	player = this.physics.add.sprite(100, 450, 'dude');
+	player = this.physics.add.sprite(100, 450, 'gmc');
 
 	//  Player physics properties. Give the little guy a slight bounce.
 	player.setBounce(0.2);
@@ -63,20 +63,20 @@ function create() {
 	//  Our player animations, turning, walking left and walking right.
 	this.anims.create({
 		key: 'left',
-		frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+		frames: this.anims.generateFrameNumbers('gmc', { start: 35, end: 36 }),
 		frameRate: 10,
 		repeat: -1
 	});
 
 	this.anims.create({
 		key: 'turn',
-		frames: [{ key: 'dude', frame: 4 }],
+		frames: [{ key: 'gmc', frame: 0 }],
 		frameRate: 20
 	});
 
 	this.anims.create({
 		key: 'right',
-		frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+		frames: this.anims.generateFrameNumbers('gmc', { start: 3, end: 4, }),
 		frameRate: 10,
 		repeat: -1
 	});
