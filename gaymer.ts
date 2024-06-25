@@ -27,6 +27,8 @@ var score = 0;
 var gameOver = false;
 var scoreText;
 
+let keyA, keyS, keyD, keyW;
+
 var game = new Phaser.Game(config);
 
 function preload() {
@@ -69,8 +71,14 @@ function create() {
 	});
 
 	this.anims.create({
-		key: 'turn',
+		key: 'idle right',
 		frames: [{ key: 'gmc', frame: 0 }],
+		frameRate: 20
+	});
+
+	this.anims.create({
+		key: 'idle left',
+		frames: [{ key: 'gmc', frame: 39 }],
 		frameRate: 20
 	});
 
@@ -81,8 +89,41 @@ function create() {
 		repeat: -1
 	});
 
+	this.anims.create({
+		key: 'left jab RIGHT',
+		frames: this.anims.generateFrameNumbers('gmc', { start: 26, end: 27, }),
+		frameRate: 6,
+		repeat: -1,
+	})
+
+	this.anims.create({
+		key: 'right jab RIGHT',
+		frames: this.anims.generateFrameNumbers('gmc', { start: 28, end: 29, }),
+		frameRate: 6,
+		repeat: -1,
+	})
+
+	this.anims.create({
+		key: 'left jab LEFT',
+		frames: this.anims.generateFrameNumbers('gmc', { start: 52, end: 53, }),
+		frameRate: 6,
+		repeat: -1,
+	})
+
+	this.anims.create({
+		key: 'right jab LEFT',
+		frames: this.anims.generateFrameNumbers('gmc', { start: 50, end: 51, }),
+		frameRate: 6,
+		repeat: -1,
+	})
+
 	//  Input Events
 	cursors = this.input.keyboard.createCursorKeys();
+
+	keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A)
+	keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S)
+	keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D)
+	keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W)
 
 	//  Some stars to collect, 12 in total, evenly spaced 70 pixels apart along the x axis
 	stars = this.physics.add.group({
@@ -114,6 +155,9 @@ function create() {
 	this.physics.add.collider(player, bombs, hitBomb, null, this);
 }
 
+let isPlayerFacingLeft = false;
+let isJabLeft = true;
+
 function update() {
 	if (gameOver) {
 		return;
@@ -123,20 +167,43 @@ function update() {
 		player.setVelocityX(-160);
 
 		player.anims.play('left', true);
+		isPlayerFacingLeft = true;
 	}
 	else if (cursors.right.isDown) {
 		player.setVelocityX(160);
 
 		player.anims.play('right', true);
+		isPlayerFacingLeft = false;
 	}
 	else {
 		player.setVelocityX(0);
 
-		player.anims.play('turn');
+		if (isPlayerFacingLeft) player.anims.play('idle left');
+		else player.anims.play('idle right');
 	}
 
 	if (cursors.up.isDown && player.body.touching.down) {
 		player.setVelocityY(-330);
+	}
+
+	if (keyA.isDown) {
+		console.log('key a bruh')
+	}
+	if (keyS.isDown) {
+		console.log('key s bruh')
+	}
+	if (keyD.isDown) {
+		console.log('key d bruh')
+	}
+	if (keyW.isDown) {
+		const playerDirection = isPlayerFacingLeft ? 'LEFT' : 'RIGHT';
+		if (isJabLeft) {
+			player.anims.play('left jab ' + playerDirection)
+			isJabLeft = false
+		} else {
+			player.anims.play('right jab ' + playerDirection)
+			isJabLeft = true
+		}
 	}
 }
 

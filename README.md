@@ -6,7 +6,7 @@ tha main cat man is back in town + the main cat town is overriden by wolves man
 
 ## TODOOZERS
 
-- player sprite/anims
+- player sprite/anims <-- doin'
 - world - background + platforms
 - item(s) 2 collect
 - wolves sprites/anims + automaton logic
@@ -49,6 +49,6 @@ row 3:
 - knee up --> 20
 - die --> 21,23,22
 - rise from death --> 24,25
-- left punch --> 26,27
-- right punch --> 28,29
+- left jab --> 26,27
+- right jab --> 28,29
 
