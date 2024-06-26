@@ -6,8 +6,8 @@ tha main cat man is back in town + the main cat town is overriden by wolves man
 
 ## TODOOZERS
 
-- player sprite/anims <-- doin'
-- world - background + platforms
+- player sprite/anims
+- world - background + platforms <-- doin'
 - item(s) 2 collect
 - wolves sprites/anims + automaton logic
 
@@ -16,6 +16,8 @@ tha main cat man is back in town + the main cat town is overriden by wolves man
 Artists
 - [dogchicken](https://opengameart.org/users/dogchicken)
 - [William.Thompson](https://opengameart.org/users/williamthompsonj)
+- [p0ss](https://opengameart.org/users/p0ss)
+- [Tio Aimar](https://opengameart.org/users/tio-aimar)
 
 ## THA STORY YO
 
@@ -28,6 +30,10 @@ GRANDMA$TER CA$H returns victorious from COMBAT MOUNTAIN only to find his hometo
 ### DEVO
 
 local runs on `localhost:3000`
+
+## FUTURE NOTES
+
+- request email link button (render email input+button form on screens not wide enough, hit resource route on server to send email w/ link to game)
 
 ## ANIM NOTERZ
 

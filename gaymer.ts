@@ -2,8 +2,8 @@ import Phaser from 'phaser'
 
 var config = {
 	type: Phaser.AUTO,
-	width: 800,
-	height: 600,
+	width: 1536,
+	height: 768,
 	physics: {
 		default: 'arcade',
 		arcade: {
@@ -32,8 +32,10 @@ let keyA, keyS, keyD, keyW;
 var game = new Phaser.Game(config);
 
 function preload() {
-	this.load.image('sky', 'assets/sky.png');
-	this.load.image('ground', 'assets/platform.png');
+	this.load.image('mountains', 'assets/snowy-mountains.png');
+	this.load.image('pf1-L', 'assets/platforms/pf1-L.png');
+	this.load.image('pf1-M', 'assets/platforms/pf1-M.png');
+	this.load.image('pf1-R', 'assets/platforms/pf1-R.png');
 	this.load.image('star', 'assets/star.png');
 	this.load.image('bomb', 'assets/bomb.png');
 	this.load.spritesheet('gmc', 'assets/gmc-cat.png', { frameWidth: 30, frameHeight: 30, });
@@ -41,19 +43,24 @@ function preload() {
 
 function create() {
 	//  A simple background for our game
-	this.add.image(400, 300, 'sky');
+	this.add.image(640, 400, 'mountains');
 
 	//  The platforms group contains the ground and the 2 ledges we can jump on
 	platforms = this.physics.add.staticGroup();
 
-	//  Here we create the ground.
-	//  Scale it to fit the width of the game (the original sprite is 400x32 in size)
-	platforms.create(400, 568, 'ground').setScale(2).refreshBody();
+	// bottom platform
+	const BASE_NUM_PLATFORMS = 12
+	for (let i = 0; i < BASE_NUM_PLATFORMS; i++) {
+		let imageName = 'pf1-M';
+		if (i === 0) imageName = 'pf1-L';
+		else if (i === BASE_NUM_PLATFORMS - 1) imageName = 'pf1-R';
 
-	//  Now let's create some ledges
-	platforms.create(600, 400, 'ground');
-	platforms.create(50, 250, 'ground');
-	platforms.create(750, 220, 'ground');
+		platforms.create(
+			64 + (i * 128),
+			736,
+			imageName
+		)
+	}
 
 	// The player and its settings
 	player = this.physics.add.sprite(100, 450, 'gmc');
