@@ -36,6 +36,8 @@ function preload() {
 	this.load.image('pf1-L', 'assets/platforms/pf1-L.png');
 	this.load.image('pf1-M', 'assets/platforms/pf1-M.png');
 	this.load.image('pf1-R', 'assets/platforms/pf1-R.png');
+	this.load.image('pf1-L-round', 'assets/platforms/pf1-L-round.png');
+	this.load.image('pf1-R-round', 'assets/platforms/pf1-R-round.png');
 	this.load.image('star', 'assets/star.png');
 	this.load.image('bomb', 'assets/bomb.png');
 	this.load.spritesheet('gmc', 'assets/gmc-cat.png', { frameWidth: 30, frameHeight: 30, });
@@ -61,6 +63,46 @@ function create() {
 			imageName
 		)
 	}
+
+	// 2nd level rounded platforms (left 2 right)
+	platforms.create(448, 550, 'pf1-L-round').setScale(0.5).refreshBody();
+	platforms.create(512, 550, 'pf1-M').setScale(0.5).refreshBody();
+	platforms.create(576, 550, 'pf1-R-round').setScale(0.5).refreshBody();
+
+	platforms.create(704, 480, 'pf1-L-round').setScale(0.5).refreshBody();
+	platforms.create(768, 480, 'pf1-M').setScale(0.5).refreshBody();
+	platforms.create(832, 480, 'pf1-R-round').setScale(0.5).refreshBody();
+
+	platforms.create(960, 550, 'pf1-L-round').setScale(0.5).refreshBody();
+	platforms.create(1024, 550, 'pf1-M').setScale(0.5).refreshBody();
+	platforms.create(1088, 550, 'pf1-R-round').setScale(0.5).refreshBody();
+
+	// 3rd level platty formies (left 2 right)
+	platforms.create(32, 370, 'pf1-L').setScale(0.5).refreshBody();
+	platforms.create(96, 370, 'pf1-M').setScale(0.5).refreshBody();
+	platforms.create(160, 370, 'pf1-M').setScale(0.5).refreshBody();
+	platforms.create(224, 370, 'pf1-M').setScale(0.5).refreshBody();
+	platforms.create(288, 370, 'pf1-R-round').setScale(0.5).refreshBody();
+
+	platforms.create(1200, 420, 'pf1-L-round').setScale(0.5).refreshBody();
+	platforms.create(1264, 420, 'pf1-M').setScale(0.5).refreshBody();
+	platforms.create(1328, 420, 'pf1-M').setScale(0.5).refreshBody();
+	platforms.create(1392, 420, 'pf1-R-round').setScale(0.5).refreshBody();
+
+	// 4th level p formaggios (left 2 right)
+	platforms.create(500, 200, 'pf1-L-round').setScale(0.5).refreshBody();
+	platforms.create(564, 200, 'pf1-M').setScale(0.5).refreshBody();
+	platforms.create(628, 200, 'pf1-M').setScale(0.5).refreshBody();
+	platforms.create(692, 200, 'pf1-R-round').setScale(0.5).refreshBody();
+
+	platforms.create(1000, 200, 'pf1-L-round').setScale(0.5).refreshBody();
+	platforms.create(1064, 200, 'pf1-M').setScale(0.5).refreshBody();
+	platforms.create(1128, 200, 'pf1-M').setScale(0.5).refreshBody();
+	platforms.create(1192, 200, 'pf1-R-round').setScale(0.5).refreshBody();
+
+	platforms.create(1378, 300, 'pf1-L-round').setScale(0.5).refreshBody();
+	platforms.create(1440, 300, 'pf1-M').setScale(0.5).refreshBody();
+	platforms.create(1504, 300, 'pf1-R').setScale(0.5).refreshBody();
 
 	// The player and its settings
 	player = this.physics.add.sprite(100, 450, 'gmc');
