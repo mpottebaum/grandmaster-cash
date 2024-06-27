@@ -7,8 +7,8 @@ tha main cat man is back in town + the main cat town is overriden by wolves man
 ## TODOOZERS
 
 - player sprite/anims
-- world - background + platforms <-- doin'
-- item(s) 2 collect
+- world - background + platforms
+- item(s) 2 collect <-- doin'
 - wolves sprites/anims + automaton logic
 
 ## THA ART YO
@@ -18,6 +18,7 @@ Artists
 - [William.Thompson](https://opengameart.org/users/williamthompsonj)
 - [p0ss](https://opengameart.org/users/p0ss)
 - [Tio Aimar](https://opengameart.org/users/tio-aimar)
+- [Clint Bellanger](https://opengameart.org/users/clint-bellanger)
 
 ## THA STORY YO
 

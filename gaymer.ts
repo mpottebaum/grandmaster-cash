@@ -32,14 +32,32 @@ let keyA, keyS, keyD, keyW;
 var game = new Phaser.Game(config);
 
 function preload() {
+	// background
 	this.load.image('mountains', 'assets/snowy-mountains.png');
+	// platforms
 	this.load.image('pf1-L', 'assets/platforms/pf1-L.png');
 	this.load.image('pf1-M', 'assets/platforms/pf1-M.png');
 	this.load.image('pf1-R', 'assets/platforms/pf1-R.png');
 	this.load.image('pf1-L-round', 'assets/platforms/pf1-L-round.png');
 	this.load.image('pf1-R-round', 'assets/platforms/pf1-R-round.png');
-	this.load.image('star', 'assets/star.png');
+	// items
 	this.load.image('bomb', 'assets/bomb.png');
+
+	this.load.image('box', 'assets/recycle-items/box.png');
+	this.load.image('can', 'assets/recycle-items/can.png');
+	this.load.image('jar', 'assets/recycle-items/jar.png');
+	this.load.image('laundry-deterg', 'assets/recycle-items/laundry-deterg.png');
+	this.load.image('milk-jugs', 'assets/recycle-items/milk-jugs.png');
+	this.load.image('mug', 'assets/recycle-items/mug.png');
+	this.load.image('paper-bag', 'assets/recycle-items/paper-bag.png');
+	this.load.image('pizza-box', 'assets/recycle-items/pizza-box.png');
+	this.load.image('soda-bottle', 'assets/recycle-items/soda-bottle.png');
+	this.load.image('soda-can', 'assets/recycle-items/soda-can.png');
+	this.load.image('spray-paint', 'assets/recycle-items/spray-paint.png');
+	this.load.image('styrofoam-cup', 'assets/recycle-items/styrofoam-cup.png');
+	this.load.image('tuna-can', 'assets/recycle-items/tuna-can.png');
+	this.load.image('water-bottle', 'assets/recycle-items/water-bottle.png');
+	// player sprites
 	this.load.spritesheet('gmc', 'assets/gmc-cat.png', { frameWidth: 30, frameHeight: 30, });
 }
 
@@ -176,8 +194,8 @@ function create() {
 
 	//  Some stars to collect, 12 in total, evenly spaced 70 pixels apart along the x axis
 	stars = this.physics.add.group({
-		key: 'star',
-		repeat: 11,
+		key: 'mug',
+		repeat: 21,
 		setXY: { x: 12, y: 0, stepX: 70 }
 	});
 
